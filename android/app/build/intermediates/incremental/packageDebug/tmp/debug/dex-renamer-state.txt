@@ -1,0 +1,4 @@
+#Mon Aug 10 16:03:00 CAT 2020
+base.0=/home/duncan/Self study/SolveIT/solved-mobile/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

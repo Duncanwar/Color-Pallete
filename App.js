@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  FlatList,
 } from 'react-native';
 
 import {
@@ -24,10 +25,34 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+const A = ({body})=>(<Text body={body}/>)
+const App = () => {
+  const renderItem = ({d})=>(<A
+     body={d.data[1].body}/>)
+  const [da,setDa] = useState([])
+
+  const dn = async () =>{
+  const api = await fetch('https://digital-auca.herokuapp.com/api/v1/community/event/view')
+  const json = await api.json()
+  console.log(json)
+  setDa(json.data)
+  }
+ 
+useEffect(()=>{
+  dn()
+},[])
   return (
+    
     <>
-    <Text>Duncan</Text>
+    <Text>Duncan </Text>
+    
+    <FlatList 
+    data={da}
+    renderItem={({item})=> (
+      <Text>{item.body}
+      </Text>
+    )}
+    />
     </>
   );
 };

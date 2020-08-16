@@ -31,14 +31,6 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
  import H5AudioPlayer from 'react-h5-audio-player';
 
-const A = ({body})=>(<Text body={body}/>)
-const Player = () => {
-  return (
-    <View>
-  </View>
-  )
-  }
-
   
 const App = () => {
   
@@ -50,15 +42,6 @@ const App = () => {
   setDa(json)
   }
 
-  // const sound = () =>{
-  //   try{
-  //     alert(soundPlayer.playSoundFile('/home/duncan/Desktop/vol; 350/167 Mwa Bera.mp3','mp3'))
-  //     console.log(au)
-  //   }
-  //   catch(e) {
-  //     alert(`can not work`);
-  //   }
-  // }
  
 useEffect(()=>{
   dn()

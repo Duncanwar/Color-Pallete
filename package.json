@@ -2,7 +2,6 @@
   "name": "AwesomeProject",
   "version": "0.0.1",
   "private": true,
-  "proxy": "localhost:6000/api/v1",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -11,8 +10,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "react": "16.13.1",
-    "react-native": "0.63.2"
+    "react-h5-audio-player": "^3.3.0",
+    "react-native": "0.63.2",
+    "react-native-sound-player": "^0.10.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

@@ -7,6 +7,8 @@
  */
 
 import React,{useState,useEffect} from 'react';
+// import Player from './sound'
+import axios from 'axios'
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,7 +17,10 @@ import {
   Text,
   StatusBar,
   FlatList,
+  Image
 } from 'react-native';
+
+import soundPlayer from 'react-native-sound-player'
 
 import {
   Header,
@@ -24,19 +29,36 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+ import H5AudioPlayer from 'react-h5-audio-player';
 
 const A = ({body})=>(<Text body={body}/>)
-const App = () => {
-  const renderItem = ({d})=>(<A
-     body={d.data[1].body}/>)
-  const [da,setDa] = useState([])
-
-  const dn = async () =>{
-  const api = await fetch('https://digital-auca.herokuapp.com/api/v1/community/event/view')
-  const json = await api.json()
-  console.log(json)
-  setDa(json.data)
+const Player = () => {
+  return (
+    <View>
+  </View>
+  )
   }
+
+  
+const App = () => {
+  
+  const [da,setDa] = useState([])
+  const [au,setAu] = useState([])
+  const dn = async () =>{
+  const api = await axios('http://192.168.8.100:6000/api/v1/courses')
+  const json = await api.data.data
+  setDa(json)
+  }
+
+  // const sound = () =>{
+  //   try{
+  //     alert(soundPlayer.playSoundFile('/home/duncan/Desktop/vol; 350/167 Mwa Bera.mp3','mp3'))
+  //     console.log(au)
+  //   }
+  //   catch(e) {
+  //     alert(`can not work`);
+  //   }
+  // }
  
 useEffect(()=>{
   dn()
@@ -44,15 +66,21 @@ useEffect(()=>{
   return (
     
     <>
-    <Text>Duncan </Text>
-    
-    <FlatList 
-    data={da}
-    renderItem={({item})=> (
-      <Text>{item.body}
-      </Text>
-    )}
-    />
+    <Text>Duncan
+      
+       </Text>
+   <FlatList 
+   data={da}
+  keyExtractor={(item) => item.ObjectId}
+   renderItem={item =>(
+     <View>
+       {console.log(da)}
+       <Text>{item.item.courseName}</Text>
+       <Image   style={{ width: 400, height: 400, marginBottom: 10 }} source={
+         {uri:item.item.coursePhoto }}></Image>
+     </View>
+   )}
+   />
     </>
   );
 };
@@ -94,6 +122,9 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+  image:{
+    width:500 ,
+  }
 });
 
 export default App;

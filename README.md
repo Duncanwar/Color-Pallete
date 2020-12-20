@@ -1,2 +1,2 @@
-# solved-mobile
-Mobile interface for driver project
+# You can choose you favorite color
+An application of chosing colors using react-native 

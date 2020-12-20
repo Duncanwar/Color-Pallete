@@ -7,7 +7,6 @@
  */
 
 import React,{useState,useEffect} from 'react';
-// import Player from './sound'
 import axios from 'axios'
 import {
   SafeAreaView,
@@ -20,8 +19,6 @@ import {
   Image
 } from 'react-native';
 
-import soundPlayer from 'react-native-sound-player'
-
 import {
   Header,
   LearnMoreLinks,
@@ -29,42 +26,15 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
- import H5AudioPlayer from 'react-h5-audio-player';
-
   
 const App = () => {
-  
-  const [da,setDa] = useState([])
-  const [au,setAu] = useState([])
-  const dn = async () =>{
-  const api = await axios('http://192.168.8.100:6000/api/v1/courses')
-  const json = await api.data.data
-  setDa(json)
-  }
-
- 
-useEffect(()=>{
-  dn()
-},[])
   return (
-    
-    <>
-    <Text>Duncan
+  <View>
+    <Text style={{color: "black"}}> Duncan Love this
       
        </Text>
-   <FlatList 
-   data={da}
-  keyExtractor={(item) => item.ObjectId}
-   renderItem={item =>(
-     <View>
-       {console.log(da)}
-       <Text>{item.item.courseName}</Text>
-       <Image   style={{ width: 400, height: 400, marginBottom: 10 }} source={
-         {uri:item.item.coursePhoto }}></Image>
-     </View>
-   )}
-   />
-    </>
+       </View>
+ 
   );
 };
 

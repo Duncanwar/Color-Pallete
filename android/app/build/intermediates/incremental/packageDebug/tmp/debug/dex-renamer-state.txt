@@ -1,4 +1,4 @@
-#Tue Aug 18 10:46:58 CAT 2020
-base.0=/home/duncan/Self study/SolveIT/solved-mobile/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Sun Dec 20 22:05:26 CAT 2020
+base.0=/home/duncan/Self study/mobile/Color-Pallete/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
